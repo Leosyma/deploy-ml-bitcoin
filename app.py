@@ -20,13 +20,13 @@ from indicadores import dsa_calcula_indicadores
 import yfinance as yf
 
 # Define metadados para a documentação da API
-tags_metadata = [{"name": "DSA-Projeto2", "description": "Prevendo o Preço de Bitcoin com Machine Learning"}]
+tags_metadata = [{"name": "Bitcoin", "description": "Prevendo o Preço de Bitcoin com Machine Learning"}]
 
 # Cria a instância da aplicação FastAPI com informações de metadados
 app = FastAPI(title = "Bitcoin Price API",
-              description = "DSA - Projeto2",
+              description = "Previsão do preço do Bitcoin",
               version = "1.0",
-              contact = {"name": "DSA", "url": "https://www.datascienceacademy.com.br"},
+
               openapi_tags = tags_metadata)
 
 # Define um modelo Pydantic para validar os dados de entrada
@@ -54,7 +54,7 @@ def message():
 # A função predict recebe um objeto Features como argumento, que contém os valores das características necessárias para fazer a previsão. 
 # Dentro dessa função, você vai extrair essas características, fazer algum pré-processamento necessário e então passá-las para 
 # o seu modelo de machine learning para obter a previsão. Finalmente, a previsão é retornada como resposta à requisição.
-@app.post("/predict", tags = ["DSA-Projeto2"])
+@app.post("/predict", tags = ["Bitcoin"])
 async def predict(Features: Features):
 
     # Features é uma classe que define a estrutura das características esperadas na requisição para a rota /predict. 

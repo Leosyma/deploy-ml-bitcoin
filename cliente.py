@@ -11,7 +11,7 @@ payload = {"Model" : "Machine Learning"}
 resposta = requests.post("http://localhost:3000/predict", json = payload).json()
 
 # Imprime a resposta
-print('\nAcessando a API do Projeto 2 da DSA Para Prever o Preço do Bitcoin!')
+print('\nAcessando a API Para Prever o Preço do Bitcoin!')
 print('\nResposta da API:\n')
 print(resposta)
 print('\nObrigado Por Usar Esta API!\n')

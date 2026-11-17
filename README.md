@@ -33,8 +33,8 @@ The main objective of this project is to demonstrate the development and deploym
 ├── app.py                  # Main API script
 ├── cliente.py              # Client application to consume the API
 ├── indicadores.py          # Functions for calculating technical indicators
-├── modelo_dsa.joblib       # Trained Machine Learning model
-├── scaler_dsa.bin          # Scaler used for data normalization
+├── modelo.joblib       # Trained Machine Learning model
+├── scaler.bin          # Scaler used for data normalization
 ├── requirements.txt        # Project dependencies
 ├── LEIAME.txt              # Original execution instructions
 └── README.md               # Project documentation
@@ -86,13 +86,13 @@ These indicators are used to transform historical price and volume data into exp
 Create a Conda virtual environment:
 
 ```bash
-conda create --name dsaengsoftp2 python=3.12
+conda create --name bitcoin-api python=3.12
 ```
 
 Activate the environment:
 
 ```bash
-conda activate dsaengsoftp2
+conda activate bitcoin-api
 ```
 
 Install `pip` and the project dependencies:
@@ -174,8 +174,8 @@ This endpoint is responsible for generating the Bitcoin price prediction.
 
 ## Notes
 
-* The trained model must be available as `modelo_dsa.joblib`.
-* The scaler used during preprocessing must be available as `scaler_dsa.bin`.
+* The trained model must be available as `modelo.joblib`.
+* The scaler used during preprocessing must be available as `scaler.bin`.
 * The prediction depends on the most recent market data retrieved from `yfinance`.
 * This project was developed for educational purposes and demonstrates the process of building, deploying, and consuming a Machine Learning API.
 

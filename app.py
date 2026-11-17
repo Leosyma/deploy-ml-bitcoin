@@ -14,7 +14,7 @@ from pydantic import BaseModel
 from joblib import load
 
 # Importa o módulo personalizado para calcular indicadores financeiros
-from indicadores import dsa_calcula_indicadores
+from indicadores import calcula_indicadores
 
 # Importa a biblioteca yfinance para baixar os dados de cotação do Bitcoin
 import yfinance as yf
@@ -72,7 +72,7 @@ async def predict(Features: Features):
     valor_historico_btc = valor_historico_btc.tz_localize(None)
 
     # Calcula indicadores financeiros nos dados históricos
-    valor_historico_btc = dsa_calcula_indicadores(valor_historico_btc)
+    valor_historico_btc = calcula_indicadores(valor_historico_btc)
 
     # Ordena os dados pelo índice de forma decrescente
     valor_historico_btc = valor_historico_btc.sort_index(ascending = False)
@@ -90,7 +90,7 @@ async def predict(Features: Features):
     dados_entrada = dados_entrada.reshape(1, -1)
 
     # Carrega o objeto scaler para normalizar os dados de entrada
-    scaler = load("scaler_dsa.bin")
+    scaler = load("scaler.bin")
 
     # Padroniza os dados de entrada
     dados_entrada = scaler.transform(dados_entrada)
@@ -100,7 +100,7 @@ async def predict(Features: Features):
 
     # Carrega o modelo de Machine Learning se especificado
     if Model == "Machine Learning":
-        arquivo = "modelo_dsa.joblib"
+        arquivo = "modelo.joblib"
         model = load(arquivo)
 
     # Faz a previsão usando o modelo carregado
